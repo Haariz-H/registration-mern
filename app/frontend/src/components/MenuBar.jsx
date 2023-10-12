@@ -6,7 +6,7 @@ function MenuBar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to={"/create-employee"}>
+          <Link className="navbar-brand" to={"/"}>
             Registration
           </Link>
           <button

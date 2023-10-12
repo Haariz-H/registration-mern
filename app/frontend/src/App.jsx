@@ -12,7 +12,7 @@ function App() {
       <MenuBar></MenuBar>
       <div className="container">
         <Routes>
-          <Route path="/" element={<CreateEmployee />}></Route>
+          <Route path="/" element={<ListEmployee />}></Route>
           <Route path="/create-employee" element={<CreateEmployee />}></Route>
           <Route path="/list-employee" element={<ListEmployee />}></Route>
           <Route path="/edit-employee" element={<EditEmployee />}></Route>
