@@ -10,7 +10,7 @@ let employeeSchema = new Schema(
       type: String,
     },
     empno: {
-      typr: Number,
+      type: Number,
     },
   },
   {

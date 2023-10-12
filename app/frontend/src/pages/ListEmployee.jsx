@@ -4,6 +4,10 @@ import axios from "axios";
 
 function ListEmployee() {
   const [userForm, setUserForm] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [totalPages, setTotalPgaes] = useState(0);
+  const pages = Array.from(Array(totalPages).keys());
+  // console.log(userForm);
   const deleteEmployee = (_id) => {
     console.log(_id);
     axios
@@ -17,9 +21,10 @@ function ListEmployee() {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:4000/employees/")
+      .get(`http://localhost:4000/employees?page=${pageNumber}`)
       .then((res) => {
         setUserForm(res.data.data);
+        setTotalPgaes(res.data.total);
       })
       .catch((error) => {
         console.log(error);
@@ -46,7 +51,7 @@ function ListEmployee() {
                 <td>
                   <Link
                     className="btn btn-primary btn-sm me-2"
-                    to={"/edit-employee" + user._id}
+                    to={"/edit-employee/" + user._id}
                   >
                     Edit
                   </Link>
@@ -64,6 +69,13 @@ function ListEmployee() {
           })}
         </tbody>
       </table>
+      {pages.map((pageIndex) => (
+        <input
+          type="button"
+          value={pageIndex + 1}
+          onClick={() => setPageNumber(pageIndex)}
+        />
+      ))}
     </div>
   );
 }

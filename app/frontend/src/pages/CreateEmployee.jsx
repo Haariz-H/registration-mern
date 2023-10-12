@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Image from "../components/Image";
 
 function CreateEmployee() {
   const [userForm, setUserForm] = useState({
@@ -31,6 +32,7 @@ function CreateEmployee() {
     <div>
       <h1>Create Employee</h1>
       <div>
+        <Image></Image>
         <form className="my-5" onSubmit={onSubmit}>
           <div className="form-outline mb-4">
             <input
